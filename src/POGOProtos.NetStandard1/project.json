@@ -1,10 +1,22 @@
 {
-  "version": "1.0.0-*",
+  "version": "1.1.0",
+  "packOptions": {
+    "summary": "Precompiled protobuf files for communication with PokémonGo.",
+    "tags": [ "Pokemon", "POGOProtos", "netstandard" ],
+    "owners": [ "AeonLucid" ],
+    "iconUrl": "http://i.imgur.com/7vJxPxu.png",
+    "projectUrl": "https://github.com/AeonLucid/POGOProtos.NetStandard1",
+    "requireLicenseAcceptance": false,
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/AeonLucid/POGOProtos.NetStandard1"
+    }
+  },
   "buildOptions": {
     "debugType": "portable"
   },
   "dependencies": {
-    "Google.Protobuf": "3.0.0"
+    "Google.Protobuf": "3.1.0"
   },
   "frameworks": {
     "netstandard1.0": {
