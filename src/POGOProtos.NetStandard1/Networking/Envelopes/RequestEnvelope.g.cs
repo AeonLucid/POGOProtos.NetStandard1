@@ -33,7 +33,7 @@ namespace POGOProtos.Networking.Envelopes {
             "c3QSWwoRcGxhdGZvcm1fcmVxdWVzdHMYBiADKAsyQC5QT0dPUHJvdG9zLk5l",
             "dHdvcmtpbmcuRW52ZWxvcGVzLlJlcXVlc3RFbnZlbG9wZS5QbGF0Zm9ybVJl",
             "cXVlc3QSEAoIbGF0aXR1ZGUYByABKAESEQoJbG9uZ2l0dWRlGAggASgBEhAK",
-            "CGFjY3VyYWN5GAkgASgFEkwKCWF1dGhfaW5mbxgKIAEoCzI5LlBPR09Qcm90",
+            "CGFjY3VyYWN5GAkgASgBEkwKCWF1dGhfaW5mbxgKIAEoCzI5LlBPR09Qcm90",
             "b3MuTmV0d29ya2luZy5FbnZlbG9wZXMuUmVxdWVzdEVudmVsb3BlLkF1dGhJ",
             "bmZvEkAKC2F1dGhfdGlja2V0GAsgASgLMisuUE9HT1Byb3Rvcy5OZXR3b3Jr",
             "aW5nLkVudmVsb3Blcy5BdXRoVGlja2V0EiEKGW1zX3NpbmNlX2xhc3RfbG9j",
@@ -162,9 +162,12 @@ namespace POGOProtos.Networking.Envelopes {
 
     /// <summary>Field number for the "accuracy" field.</summary>
     public const int AccuracyFieldNumber = 9;
-    private int accuracy_;
+    private double accuracy_;
+    /// <summary>
+    ///  Make sure to use this to build POGOProtos.Networking.Envelopes.Signature.location_hash1 and POGOProtos.Networking.Envelopes.Signature.location_hash2
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Accuracy {
+    public double Accuracy {
       get { return accuracy_; }
       set {
         accuracy_ = value;
@@ -239,7 +242,7 @@ namespace POGOProtos.Networking.Envelopes {
       hash ^= platformRequests_.GetHashCode();
       if (Latitude != 0D) hash ^= Latitude.GetHashCode();
       if (Longitude != 0D) hash ^= Longitude.GetHashCode();
-      if (Accuracy != 0) hash ^= Accuracy.GetHashCode();
+      if (Accuracy != 0D) hash ^= Accuracy.GetHashCode();
       if (authInfo_ != null) hash ^= AuthInfo.GetHashCode();
       if (authTicket_ != null) hash ^= AuthTicket.GetHashCode();
       if (MsSinceLastLocationfix != 0L) hash ^= MsSinceLastLocationfix.GetHashCode();
@@ -271,9 +274,9 @@ namespace POGOProtos.Networking.Envelopes {
         output.WriteRawTag(65);
         output.WriteDouble(Longitude);
       }
-      if (Accuracy != 0) {
-        output.WriteRawTag(72);
-        output.WriteInt32(Accuracy);
+      if (Accuracy != 0D) {
+        output.WriteRawTag(73);
+        output.WriteDouble(Accuracy);
       }
       if (authInfo_ != null) {
         output.WriteRawTag(82);
@@ -306,8 +309,8 @@ namespace POGOProtos.Networking.Envelopes {
       if (Longitude != 0D) {
         size += 1 + 8;
       }
-      if (Accuracy != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Accuracy);
+      if (Accuracy != 0D) {
+        size += 1 + 8;
       }
       if (authInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(AuthInfo);
@@ -340,7 +343,7 @@ namespace POGOProtos.Networking.Envelopes {
       if (other.Longitude != 0D) {
         Longitude = other.Longitude;
       }
-      if (other.Accuracy != 0) {
+      if (other.Accuracy != 0D) {
         Accuracy = other.Accuracy;
       }
       if (other.authInfo_ != null) {
@@ -392,8 +395,8 @@ namespace POGOProtos.Networking.Envelopes {
             Longitude = input.ReadDouble();
             break;
           }
-          case 72: {
-            Accuracy = input.ReadInt32();
+          case 73: {
+            Accuracy = input.ReadDouble();
             break;
           }
           case 82: {

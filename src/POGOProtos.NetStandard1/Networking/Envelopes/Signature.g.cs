@@ -37,11 +37,11 @@ namespace POGOProtos.Networking.Envelopes {
             "ZXR3b3JraW5nLkVudmVsb3Blcy5TaWduYXR1cmUuRGV2aWNlSW5mbxJSCg9h",
             "Y3Rpdml0eV9zdGF0dXMYCSABKAsyOS5QT0dPUHJvdG9zLk5ldHdvcmtpbmcu",
             "RW52ZWxvcGVzLlNpZ25hdHVyZS5BY3Rpdml0eVN0YXR1cxIWCg5sb2NhdGlv",
-            "bl9oYXNoMRgKIAEoBRIPCgdmaWVsZDExGAsgASgIEg8KB2ZpZWxkMTIYDCAB",
+            "bl9oYXNoMRgKIAEoDRIPCgdmaWVsZDExGAsgASgIEg8KB2ZpZWxkMTIYDCAB",
             "KAgSDwoHZmllbGQxMxgNIAEoBRIPCgdmaWVsZDE0GA4gASgFEg8KB2ZpZWxk",
             "MTUYDyABKAkSDwoHZmllbGQxNhgQIAEoBRIPCgdmaWVsZDE3GBEgASgJEg8K",
             "B2ZpZWxkMTgYEiABKAkSDwoHZmllbGQxORgTIAEoCBIWCg5sb2NhdGlvbl9o",
-            "YXNoMhgUIAEoBRIPCgdmaWVsZDIxGBUgASgIEhQKDHNlc3Npb25faGFzaBgW",
+            "YXNoMhgUIAEoDRIPCgdmaWVsZDIxGBUgASgIEhQKDHNlc3Npb25faGFzaBgW",
             "IAEoDBIRCgl0aW1lc3RhbXAYFyABKAQSFAoMcmVxdWVzdF9oYXNoGBggAygE",
             "EhEKCXVua25vd24yNRgZIAEoAxqIAgoLTG9jYXRpb25GaXgSEAoIcHJvdmlk",
             "ZXIYASABKAkSGgoSdGltZXN0YW1wX3NuYXBzaG90GAIgASgEEhAKCGFsdGl0",
@@ -247,9 +247,9 @@ namespace POGOProtos.Networking.Envelopes {
 
     /// <summary>Field number for the "location_hash1" field.</summary>
     public const int LocationHash1FieldNumber = 10;
-    private int locationHash1_;
+    private uint locationHash1_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int LocationHash1 {
+    public uint LocationHash1 {
       get { return locationHash1_; }
       set {
         locationHash1_ = value;
@@ -357,9 +357,9 @@ namespace POGOProtos.Networking.Envelopes {
 
     /// <summary>Field number for the "location_hash2" field.</summary>
     public const int LocationHash2FieldNumber = 20;
-    private int locationHash2_;
+    private uint locationHash2_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int LocationHash2 {
+    public uint LocationHash2 {
       get { return locationHash2_; }
       set {
         locationHash2_ = value;
@@ -381,7 +381,7 @@ namespace POGOProtos.Networking.Envelopes {
     public const int SessionHashFieldNumber = 22;
     private pb::ByteString sessionHash_ = pb::ByteString.Empty;
     /// <summary>
-    ///  16 bytes, unique per session
+    ///  32 random bytes, unique per session.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString SessionHash {
@@ -531,7 +531,7 @@ namespace POGOProtos.Networking.Envelopes {
       }
       if (LocationHash1 != 0) {
         output.WriteRawTag(80);
-        output.WriteInt32(LocationHash1);
+        output.WriteUInt32(LocationHash1);
       }
       if (Field11 != false) {
         output.WriteRawTag(88);
@@ -571,7 +571,7 @@ namespace POGOProtos.Networking.Envelopes {
       }
       if (LocationHash2 != 0) {
         output.WriteRawTag(160, 1);
-        output.WriteInt32(LocationHash2);
+        output.WriteUInt32(LocationHash2);
       }
       if (Field21 != false) {
         output.WriteRawTag(168, 1);
@@ -613,7 +613,7 @@ namespace POGOProtos.Networking.Envelopes {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ActivityStatus);
       }
       if (LocationHash1 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(LocationHash1);
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LocationHash1);
       }
       if (Field11 != false) {
         size += 1 + 1;
@@ -643,7 +643,7 @@ namespace POGOProtos.Networking.Envelopes {
         size += 2 + 1;
       }
       if (LocationHash2 != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(LocationHash2);
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(LocationHash2);
       }
       if (Field21 != false) {
         size += 2 + 1;
@@ -788,7 +788,7 @@ namespace POGOProtos.Networking.Envelopes {
             break;
           }
           case 80: {
-            LocationHash1 = input.ReadInt32();
+            LocationHash1 = input.ReadUInt32();
             break;
           }
           case 88: {
@@ -828,7 +828,7 @@ namespace POGOProtos.Networking.Envelopes {
             break;
           }
           case 160: {
-            LocationHash2 = input.ReadInt32();
+            LocationHash2 = input.ReadUInt32();
             break;
           }
           case 168: {
