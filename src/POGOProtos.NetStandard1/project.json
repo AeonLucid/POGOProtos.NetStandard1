@@ -2,7 +2,7 @@
   "title": "POGOProtos.NetStandard1",
   "description": "Precompiled protobuf files for communication with PokemonGo.",
   "authors": [ "AeonLucid" ],
-  "version": "*",
+  "version": "1.0.0-*",
   "packOptions": {
     "summary": "Precompiled protobuf files for communication with PokemonGo.",
     "tags": [ "Pokemon", "POGOProtos", "netstandard" ],
