@@ -15,8 +15,8 @@ environment:
 build_script:
   - ps: ./build.ps1
   
-# artifacts:
-#  - path: artifacts\**\*.*
+artifacts:
+ - path: '**\POGOProtos.*.nupkg'
 
 cache:
   - '%USERPROFILE%\.nuget\packages'
