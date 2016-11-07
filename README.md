@@ -1,6 +1,6 @@
 # POGOProtos.NetStandard1
 
-Precompiled protobuf files for communication with PokémonGo.
+Precompiled protobuf files for communication with PokÃ©monGo.
 
 ## Supported Platforms
 
@@ -10,3 +10,5 @@ Precompiled protobuf files for communication with PokémonGo.
 Installation is done via NuGet:
 
     PM> Install-Package POGOProtos.NetStandard1
+    
+https://www.nuget.org/packages/POGOProtos.NetStandard1/
