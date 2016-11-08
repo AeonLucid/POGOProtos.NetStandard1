@@ -16,7 +16,7 @@ environment:
       PYTHON_ARCH: "32"
 
 build_script:
-  - ps: ./build.ps1 -ScriptArgs "-branch=`"%pogoprotos_tag%`""
+  - ps: ./build.ps1 -ScriptArgs "-branch=`"$(pogoprotos_tag)`""
   
 artifacts:
  - path: '**\POGOProtos.*.nupkg'
