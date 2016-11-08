@@ -1,7 +1,7 @@
 #addin nuget:?package=Cake.Git
 
 var gitRepository = "https://github.com/AeonLucid/POGOProtos.git";
-var branch = Argument("Branch", "master");
+var branch = EnvironmentVariable("POGOPROTOS_TAG") ?? "master";
 
 Information(branch);
 
@@ -12,11 +12,11 @@ Task("Clean").Does(() => {
 });
 
 Task("POGOProtos-Tools").Does(() => {
-    NuGetInstall("Google.Protobuf.Tools", new NuGetInstallSettings {
-        ExcludeVersion = true,
-        OutputDirectory = "./tools",
-        Version = "3.1.0"
-    });
+  NuGetInstall("Google.Protobuf.Tools", new NuGetInstallSettings {
+    ExcludeVersion = true,
+    OutputDirectory = "./tools",
+    Version = "3.1.0"
+  });
 });
 
 Task("POGOProtos-Clone").Does(() => {
@@ -33,13 +33,13 @@ Task("POGOProtos-Clone").Does(() => {
 
 Task("POGOProtos-Compile").Does(() => {
   StartProcess("C:/Python27/python.exe", new ProcessSettings()
-        .WithArguments(args => 
-            args.AppendQuoted(System.IO.Path.GetFullPath("./POGOProtos/compile.py"))
-                .Append("-p")
-                .AppendQuoted(System.IO.Path.GetFullPath("./tools/Google.Protobuf.Tools/tools/windows_x64/protoc.exe"))
-                .Append("-o")
-                .AppendQuoted(System.IO.Path.GetFullPath("./POGOProtos/out"))
-                .Append("csharp")));
+    .WithArguments(args => 
+      args.AppendQuoted(System.IO.Path.GetFullPath("./POGOProtos/compile.py"))
+          .Append("-p")
+          .AppendQuoted(System.IO.Path.GetFullPath("./tools/Google.Protobuf.Tools/tools/windows_x64/protoc.exe"))
+          .Append("-o")
+          .AppendQuoted(System.IO.Path.GetFullPath("./POGOProtos/out"))
+          .Append("csharp")));
 });
 
 Task("POGOProtos-Move").Does(() => {
