@@ -5,18 +5,18 @@ branches:
 assembly_info:
   patch: false
 
-# 'pogoprotos_tag' is set to a pushed tag on AeonLucid/POGOProtos through a proxy webhook.
+# 'POGOPROTOS_TAG' is set to a pushed tag on AeonLucid/POGOProtos through a proxy webhook.
 
 environment:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
-  pogoprotos_tag: "master"
+  POGOPROTOS_TAG: "master"
   matrix:
     - PYTHON: "C:\\Python27"
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "32"
 
 build_script:
-  - ps: ./build.ps1 -ScriptArgs "-branch=`"$(pogoprotos_tag)`""
+  - ps: ./build.ps1 -ScriptArgs "-branch=`"%POGOPROTOS_TAG%`""
   
 artifacts:
  - path: '**\POGOProtos.*.nupkg'
