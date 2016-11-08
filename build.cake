@@ -25,6 +25,7 @@ Task("POGOProtos-Clone").Does(() => {
   StartProcess("git.exe", new ProcessSettings()
     .WithArguments(args => 
       args.Append("clone")
+          .Append("--quiet")                   
           .Append("--branch")
           .AppendQuoted(branch)
           .Append(gitRepository)
