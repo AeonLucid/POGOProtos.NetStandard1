@@ -1,6 +1,9 @@
 #addin nuget:?package=Cake.Git
 
-var target = Argument("target", "Default");
+var gitRepository = "https://github.com/AeonLucid/POGOProtos.git";
+var branch = Argument("Branch", "master");
+
+Information(branch);
 
 Task("Clean").Does(() => {
   if (DirectoryExists("POGOProtos")) {
@@ -17,7 +20,15 @@ Task("POGOProtos-Tools").Does(() => {
 });
 
 Task("POGOProtos-Clone").Does(() => {
-  GitClone("https://github.com/AeonLucid/POGOProtos.git", new DirectoryPath("POGOProtos"));
+  Information("Cloning branch '" + branch + "'...");
+
+  StartProcess("git.exe", new ProcessSettings()
+    .WithArguments(args => 
+      args.Append("clone")
+          .Append("--branch")
+          .AppendQuoted(branch)
+          .Append(gitRepository)
+          .Append("POGOProtos")));
 });
 
 Task("POGOProtos-Compile").Does(() => {
@@ -60,4 +71,4 @@ Task("Default")
   DotNetCorePack("./src/POGOProtos.NetStandard1", buildSettings);
 });
 
-RunTarget(target);
+RunTarget("Default");
