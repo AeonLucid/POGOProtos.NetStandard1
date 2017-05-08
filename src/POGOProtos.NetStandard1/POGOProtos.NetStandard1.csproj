@@ -5,15 +5,16 @@
     <AssemblyTitle>POGOProtos.NetStandard1</AssemblyTitle>
     <Authors>AeonLucid</Authors>
     <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
-    <DebugType>portable</DebugType>
     <AssemblyName>POGOProtos.NetStandard1</AssemblyName>
     <PackageId>POGOProtos.NetStandard1</PackageId>
     <PackageTags>Pokemon;POGOProtos;netstandard</PackageTags>
-    <PackageIconUrl>http://i.imgur.com/7vJxPxu.png</PackageIconUrl>
+    <PackageIconUrl>http://i.imgur.com/sIso99f.jpg</PackageIconUrl>
     <PackageProjectUrl>https://github.com/AeonLucid/POGOProtos.NetStandard1</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/AeonLucid/POGOProtos.NetStandard1</RepositoryUrl>
+    <Version>1.0.0-rc</Version>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.0' ">1.6.0</NetStandardImplicitPackageVersion>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
