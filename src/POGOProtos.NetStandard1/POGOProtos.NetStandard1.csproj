@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Precompiled protobuf files for communication with PokemonGo.</Description>
+    <AssemblyTitle>POGOProtos.NetStandard1</AssemblyTitle>
+    <Authors>AeonLucid</Authors>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <DebugType>portable</DebugType>
+    <AssemblyName>POGOProtos.NetStandard1</AssemblyName>
+    <PackageId>POGOProtos.NetStandard1</PackageId>
+    <PackageTags>Pokemon;POGOProtos;netstandard</PackageTags>
+    <PackageIconUrl>http://i.imgur.com/7vJxPxu.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/AeonLucid/POGOProtos.NetStandard1</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/AeonLucid/POGOProtos.NetStandard1</RepositoryUrl>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.0' ">1.6.0</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
