@@ -1,4 +1,6 @@
-# POGOProtos.NetStandard1 [![AppVeyor](https://img.shields.io/appveyor/ci/AeonLucid/pogoprotos-netstandard1/master.svg?maxAge=60)](https://ci.appveyor.com/project/AeonLucid/pogoprotos-netstandard1)  [![NuGet](https://img.shields.io/nuget/v/POGOProtos.NetStandard1.svg?maxAge=60)](https://www.nuget.org/packages/POGOProtos.NetStandard1) [![NuGet](https://img.shields.io/nuget/vpre/POGOProtos.NetStandard1.svg?maxAge=60)](https://www.nuget.org/packages/POGOProtos.NetStandard1)
+# This project is no longer maintained. Please use https://github.com/Furtif/POGOProtos.Core instead, which is a fork of this project.
+
+# ~POGOProtos.NetStandard1~
 
 Precompiled protobuf files for communication with PokémonGo.
 
